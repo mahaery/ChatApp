@@ -1,0 +1,14 @@
+version: '3.12'
+
+services:
+  rabbitmq:
+    container_name: "rabbitmq"
+    image: rabbitmq:3.12.0-management
+    ports:
+      - 5672:5672 # RabbitMQ main port
+      - 15672:15672 # RabbitMQ management UI
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq # Persist data
+
+volumes:
+  rabbitmq_data:
